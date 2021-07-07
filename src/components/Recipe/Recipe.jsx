@@ -8,8 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 const Recipe = () => {
   const recipe = useSelector((state) => state.recipe.recipe);
   const dispatch = useDispatch();
-  const hasRecipe = Object.keys(recipe).length === 0;
-  console.log(hasRecipe);
 
   const shouldRecipeSpin = useSelector((state) => state.loading.recipe);
   const newRecipe = {
@@ -25,14 +23,11 @@ const Recipe = () => {
   };
 
   const addBookmarkHandler = () => {
-    if (!newRecipe.bookmarked) {
+    setTimeout(() => {
       dispatch(recipesActions.addBookmarks({ payload: newRecipe }));
-    } else {
-      dispatch(recipesActions.deleteBookmarks({ payload: newRecipe.recipeId }));
-    }
+
+    }, 10);
   };
-  console.log(recipe);
-  console.log(newRecipe);
   return (
     <React.Fragment>
       {shouldRecipeSpin ? (

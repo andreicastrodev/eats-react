@@ -8,7 +8,6 @@ function App() {
   const recipe = useSelector((state) => state.recipe.recipe);
 
   const hasRecipe = Object.keys(recipe).length === 0;
-  console.log(hasRecipe);
   useEffect(() => {
     window.location.hash = "";
   }, []);

@@ -21,21 +21,24 @@ const recipesSlice = createSlice({
       state.recipe = action.payload;
     },
     addBookmarks(state, action) {
-      state.bookmarks.push(action.payload);
+      let index;
 
-      if (action.payload.recipeId === state.recipe.recipeID)
-        state.recipe.payload.bookmarked = true;
-    },
-    deleteBookmarks(state, action) {
-      const index = state.bookmarks.findIndex(
-        (el) => el.recipeId === action.payload
-      );
-      console.log(index);
-      state.bookmarks.splice(index, 1);
-      if (action.payload === state.recipe.recipeId)
+      const hasRecipe = state.bookmarks.some((rec, i) => {
+        index = i;
+        return rec.payload.recipeId === state.recipe.payload.recipe_id
+      });
+
+      console.log(hasRecipe)
+      if (hasRecipe) {
+        state.bookmarks.splice(index, 1)
         state.recipe.payload.bookmarked = false;
+
+      } else {
+        state.recipe.payload.bookmarked = true;
+        state.bookmarks.push(action.payload);
+      }
     },
-  },
+  }
 });
 
 export const recipesActions = recipesSlice.actions;

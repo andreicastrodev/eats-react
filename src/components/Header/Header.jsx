@@ -9,7 +9,6 @@ const Header = () => {
   const bookmarkedRecipes = useSelector((state) => state.recipe.bookmarks);
   const [searchField, setSearchField] = useState("");
   const dispatch = useDispatch();
-  console.log(bookmarkedRecipes);
   const formSubmitHandler = (e) => {
     e.preventDefault();
 

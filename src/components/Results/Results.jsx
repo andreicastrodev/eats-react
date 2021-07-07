@@ -7,7 +7,6 @@ const Results = () => {
   const dispatch = useDispatch();
   const shouldResultSpin = useSelector((state) => state.loading.results);
   const results = useSelector((state) => state.recipe.search.results);
-  console.log(shouldResultSpin);
   const onHashChangeHandler = () => {
     setTimeout(function () {
       dispatch(fetchRecipe());
