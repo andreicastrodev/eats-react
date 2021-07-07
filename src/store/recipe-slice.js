@@ -20,7 +20,7 @@ const recipesSlice = createSlice({
     addRecipeOnHashChange(state, action) {
       state.recipe = action.payload;
     },
-    addBookmarks(state, action) {
+    addOrRemoveBookmarks(state, action) {
       let index;
 
       const hasRecipe = state.bookmarks.some((rec, i) => {
