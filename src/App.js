@@ -5,17 +5,32 @@ import Recipe from "./components/Recipe/Recipe";
 import {useEffect} from "react";
 import {useSelector} from "react-redux";
 function App() {
+
+    const mode = useSelector(state => state.mode.mode)
+
     useEffect(() => {
         window.location.hash = "";
     }, []);
 
-    return (
-        <div className="App">
-            <Header/>
-            <Results/>
-            <Recipe/>
-        </div>
-    );
+
+    let appStyles;
+
+    if (mode === 'light') {
+        appStyles = 'App'
+    } else {
+        appStyles = 'AppDark'
+
+    }
+
+
+    console.log(mode)
+    return (<div className={
+        `${appStyles}`
+    }>
+        <Header/>
+        <Results/>
+        <Recipe/>
+    </div>);
 }
 
 export default App;

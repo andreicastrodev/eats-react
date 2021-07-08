@@ -3,18 +3,23 @@ import styles from "./Header.module.css";
 import { ReactComponent as HeaderMode } from "../../misc/svg/mode.svg";
 import { ReactComponent as HeaderBookmark } from "../../misc/svg/bookmark.svg";
 import { useDispatch, useSelector } from "react-redux";
+import { modeActions } from "../../store/mode-slice";
 import { fetchSearchAndResult } from "../../store/actions";
 import { fetchRecipe } from "../../store/actions";
 const Header = () => {
   const bookmarkedRecipes = useSelector((state) => state.recipe.bookmarks);
   const [searchField, setSearchField] = useState("");
   const dispatch = useDispatch();
+
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
     dispatch(fetchSearchAndResult(searchField));
   };
 
+  const handleModeSelector = () => {
+    dispatch(modeActions.setModeToggler());
+  };
   const handleSearchField = (e) => {
     setSearchField(e.target.value);
   };
@@ -44,7 +49,7 @@ const Header = () => {
       </form>
       <nav className={styles.headerFns}>
         <li>
-          <button>
+          <button onClick={handleModeSelector}>
             <HeaderMode className={styles.headerMode} />
           </button>
         </li>

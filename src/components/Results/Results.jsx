@@ -7,11 +7,24 @@ const Results = () => {
   const dispatch = useDispatch();
   const shouldResultSpin = useSelector((state) => state.loading.results);
   const results = useSelector((state) => state.recipe.search.results);
+  const mode = useSelector((state) => state.mode.mode);
+
   const onHashChangeHandler = () => {
     setTimeout(function () {
       dispatch(fetchRecipe());
     }, 10);
   };
+
+  let resultsTitle;
+  let resultsCook;
+
+  if (mode === "light") {
+    resultsTitle = styles.resultsTitle;
+    resultsCook = styles.resultsCook;
+  } else {
+    resultsTitle = styles.resultsTitleDark;
+    resultsCook = styles.resultsCookDark;
+  }
 
   return (
     <ul className={styles.results}>
@@ -33,10 +46,10 @@ const Results = () => {
                 />
               </figure>
               <div className={styles.resultsInfo}>
-                <p className={styles.resultsTitle}>
+                <p className={resultsTitle}>
                   {result.title.substring(0, 20) + "..."}
                 </p>
-                <span className={styles.resultsCook}>{result.publisher}</span>
+                <span className={resultsCook}>{result.publisher}</span>
               </div>
             </a>
           ))}

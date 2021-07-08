@@ -56,10 +56,29 @@
   font-size: 1.6rem;
   font-weight: 700;
   text-transform: uppercase;
+  transition: ease 0.5s;
+}
+
+.resultsTitleDark {
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  transition: ease 0.5s;
+}
+
+.resultsCookDark {
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: white;
+  transition: ease 0.5s;
 }
 
 .resultsCook {
   font-size: 1.3rem;
   font-weight: 500;
   text-transform: uppercase;
+  transition: ease 0.5s;
 }
