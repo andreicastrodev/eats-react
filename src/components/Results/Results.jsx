@@ -17,6 +17,7 @@ const Results = () => {
 
   let resultsTitle;
   let resultsCook;
+  let resultsBoxDark;
 
   if (mode === "light") {
     resultsTitle = styles.resultsTitle;
@@ -24,6 +25,7 @@ const Results = () => {
   } else {
     resultsTitle = styles.resultsTitleDark;
     resultsCook = styles.resultsCookDark;
+    resultsBoxDark = styles.resultsBoxDark;
   }
 
   return (
@@ -35,7 +37,7 @@ const Results = () => {
           {results.map((result) => (
             <a
               href={`#${result.recipe_id}`}
-              className={styles.resultsBox}
+              className={`${styles.resultsBox} ${resultsBoxDark}`}
               key={result.recipe_id}
             >
               <figure className={styles.resultsFig}>

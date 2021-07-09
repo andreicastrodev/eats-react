@@ -9,8 +9,17 @@ import { useDispatch, useSelector } from "react-redux";
 const Recipe = () => {
   const recipe = useSelector((state) => state.recipe.recipe);
   const bookmarkedItems = useSelector((state) => state.recipe.bookmarks);
+  const mode = useSelector((state) => state.mode.mode);
+
   const hasRecipe = Object.keys(recipe).length === 0;
   const dispatch = useDispatch();
+
+  let recipeIngredientsDark;
+  let recipeServingSvgDark;
+  if (mode === "dark") {
+    recipeIngredientsDark = styles.recipeIngredientsDark;
+    recipeServingSvgDark = styles.recipeServingSvgDark;
+  }
 
   let newRecipe;
   if (!hasRecipe) {
@@ -60,15 +69,15 @@ const Recipe = () => {
               className={styles.recipeBookmarkButton}
             >
               {bookmarkedItem ? (
-                <BookmarkFill className={styles.recipeServingSvg} />
+                <BookmarkFill className={`${styles.recipeServingSvg} ${recipeServingSvgDark}`} />
               ) : (
-                <Bookmark className={styles.recipeServingSvg} />
+                <Bookmark className={`${styles.recipeServingSvg} ${recipeServingSvgDark}`} />
               )}{" "}
             </button>
           </div>
         </div>
 
-        <div className={styles.recipeIngredients}>
+        <div className={`${styles.recipeIngredients} ${recipeIngredientsDark}`}>
           <ul className={styles.recipeIngredientsList}>
             {newRecipe.ingredients.map((item, i) => (
               <li className={styles.recipeList} key={i}>

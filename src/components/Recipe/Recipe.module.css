@@ -45,6 +45,11 @@
   margin-top: 2rem;
 }
 
+.recipeIngredientsDark {
+  background-color: black;
+  transition: ease 0.5s;
+}
+
 .recipeIngredientsList {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -109,6 +114,11 @@
 .recipeServingSvg {
   height: 5rem;
   width: 5rem;
+}
+
+.recipeServingSvgDark {
+  color: white;
+  fill: white;
 }
 
 .recipeTimeSvg {

@@ -20,7 +20,7 @@
   align-items: center;
   padding-left: 3rem;
   transition: all 0.3s;
-  flex: 0 0 60%;
+  flex: 0 0 25%;
   justify-content: center;
 }
 
@@ -34,6 +34,16 @@
   outline: none;
 }
 
+.headerInputDark {
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: black;
+  font-size: 1.7rem;
+  width: 30rem;
+  outline: none;
+  transition: ease 0.5s;
+}
 .headerBtn {
   padding: 1.3rem 3rem;
   font-size: 1.4rem;
@@ -46,7 +56,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  flex: 0 0 20%;
+  flex: 0 0 30%;
   list-style: none;
 }
 
@@ -54,6 +64,13 @@
 .headerBookmark {
   height: 4.7rem;
   cursor: pointer;
+}
+
+.headerModeDark,
+.headerBookmarkDark,
+.headerSpanDark {
+  color: white;
+  transition: easet 0.5s;
 }
 
 .headerBookmarks:hover,
@@ -152,4 +169,8 @@
   text-transform: uppercase;
   padding: 3rem;
   text-align: center;
+}
+
+.headerBookmarkMessageDark {
+  color: black;
 }

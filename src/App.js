@@ -17,20 +17,23 @@ function App() {
 
     if (mode === 'light') {
         appStyles = 'App'
+        document.body.classList.remove('body-dark');
+
     } else {
         appStyles = 'AppDark'
+        document.body.classList.add('body-dark');
+
 
     }
-
-
-    console.log(mode)
-    return (<div className={
-        `${appStyles}`
-    }>
-        <Header/>
-        <Results/>
-        <Recipe/>
-    </div>);
+    return (
+        <div className={
+            `${appStyles}`
+        }>
+            <Header/>
+            <Results/>
+            <Recipe/>
+        </div>
+    );
 }
 
 export default App;

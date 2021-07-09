@@ -49,6 +49,12 @@
   transform: translateY(-2px);
 }
 
+
+.resultsBoxDark:hover {
+  background-color: transparent;
+  transform: translateY(-2px);
+}
+
 .resultsInfo {
 }
 

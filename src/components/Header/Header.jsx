@@ -8,8 +8,25 @@ import { fetchSearchAndResult } from "../../store/actions";
 import { fetchRecipe } from "../../store/actions";
 const Header = () => {
   const bookmarkedRecipes = useSelector((state) => state.recipe.bookmarks);
+  const mode = useSelector((state) => state.mode.mode);
+
   const [searchField, setSearchField] = useState("");
   const dispatch = useDispatch();
+
+  let headerInput;
+  let headerModeDark;
+  let headerBookmarkDark;
+  let headerSpanDark;
+  let headerBookmarkMessageDark;
+  if (mode === "light") {
+    headerInput = styles.headerInput;
+  } else {
+    headerInput = styles.headerInputDark;
+    headerModeDark = styles.headerModeDark;
+    headerBookmarkDark = styles.headerBookmarkDark;
+    headerSpanDark = styles.headerSpanDark;
+    headerBookmarkMessageDark = styles.headerBookmarkMessageDark;
+  }
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
@@ -39,7 +56,7 @@ const Header = () => {
       <h1 className={styles.headerTitle}>Eatsys</h1>
       <form onSubmit={formSubmitHandler} className={styles.headerForm}>
         <input
-          className={styles.headerInput}
+          className={headerInput}
           type="text"
           placeholder="Search recipes now!"
           value={searchField}
@@ -50,13 +67,15 @@ const Header = () => {
       <nav className={styles.headerFns}>
         <li>
           <button onClick={handleModeSelector}>
-            <HeaderMode className={styles.headerMode} />
+            <HeaderMode className={`${styles.headerMode} ${headerModeDark}`} />
           </button>
         </li>
         <li>
           <button className={styles.heaverBookmarkBtn}>
-            <HeaderBookmark className={styles.headerBookmark} />
-            <span>Bookmark</span>
+            <HeaderBookmark
+              className={`${styles.headerBookmark} ${headerBookmarkDark}`}
+            />
+            <span className={`${headerSpanDark}`}>Bookmark</span>
           </button>
           <div className={styles.headerBookmarks}>
             <ul className={styles.headerBookmarksList}>
@@ -90,7 +109,9 @@ const Header = () => {
                   </li>
                 ))
               ) : (
-                <p className={styles.headerBookmarkMessage}>
+                <p
+                  className={`${styles.headerBookmarkMessage} ${headerBookmarkMessageDark}`}
+                >
                   Bookmark a recipe now :)
                 </p>
               )}

@@ -40,8 +40,7 @@ body {
       [col-start] minmax(min-content, 14rem) [col-end]
     )
     [center-end] 1fr [full-end];
-    transition: ease 0.5s;
-
+  transition: ease 0.5s;
 }
 
 .AppDark {
@@ -61,6 +60,11 @@ body {
       [col-start] minmax(min-content, 14rem) [col-end]
     )
     [center-end] 1fr [full-end];
-    transition: ease 0.5s;
+  transition: ease 0.5s;
+}
+
+.body-dark {
+  background-color: black;
+  transition: ease 0.5s;
 
 }
