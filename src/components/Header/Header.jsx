@@ -30,7 +30,7 @@ const Header = () => {
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
-
+    if (searchField === "") return;
     dispatch(fetchSearchAndResult(searchField));
   };
 
